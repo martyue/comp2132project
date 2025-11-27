@@ -157,6 +157,7 @@ function playAgain() {
         })
         .then(function (json) {
             hangman.startGame(pickRandomWordHint(json));
+            displayhint.style.fontWeight = 100;
             displayhint.innerHTML = `Hint: ` + hangman.hint;
             displayword.innerHTML = hangman.display.join(" ");
             hangmanPic.src = `images/image0${initialImageNumber}.png`;
@@ -166,6 +167,7 @@ function playAgain() {
             displayMessage.classList.remove("won");
         })
 }
+
 
 
 
