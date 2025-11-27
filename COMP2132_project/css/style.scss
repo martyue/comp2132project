@@ -1,0 +1,160 @@
+/*
+Variables
+*/
+
+$themecolor: #35c7b8;
+
+/*
+mixin
+*/
+
+@mixin button($themecolor) {
+  color: $themecolor;
+  height: 50px;
+  width: 50px;
+  font-size: 25px;
+  border-radius: 12px;
+  border: none;
+}
+
+
+html {
+  box-sizing: border-box;
+  font-family: "Dosis", sans-serif;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+}
+
+/*
+HTML element selectors
+*/
+
+body {
+  font-size: 1.2em;
+}
+
+h1 { font-size: 2em; }
+h2 { font-size: 1.7em; }
+h3 { font-size: 1.4em; }
+h4 { font-size: 1.3em; }
+h5 { font-size: 1.2em; }
+h6 { font-size: 1em; }
+
+h1, h2, h3 {
+  font-weight: bold;
+  padding: 5px;
+}
+
+h4, h5, h6 {
+  padding: 5px;
+}
+
+header {
+  background-color: $themecolor;
+  border-radius: 10px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  border: double;
+  border-radius: 10px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/*
+Class selectors
+*/
+
+.key-relax,
+.key-pressed {
+  height: 50px;
+  width: 50px;
+  font-size: 25px;
+  border-radius: 100px;
+}
+
+.key-relax {
+  @include button($themecolor);
+  background-color: black;
+}
+
+.key-pressed {
+  @include button(red);
+  background-color: white;
+}
+
+.won {
+  font-weight: bold;
+  font-size: larger;
+  color: green;
+}
+
+.lost {
+  font-weight: bold;
+  font-size: larger;
+  color: red;
+}
+
+.hint {
+  font-weight: 100;
+}
+
+/*
+ID selectors
+*/
+
+
+#keyboard {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+}
+
+#playagain {
+  margin: 10px;
+  height: 50px;
+  width: 200px;
+  font-size: 30px;
+  border-radius: 10px;
+}
+
+#hangman-pic {
+  width: 400px;
+  height: 400px;
+}
+
+#wrapper {
+  max-width: 900px;
+  background-color: white;
+  padding: 0;
+  margin: auto;
+  border-width: 0;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/*
+Media queries
+*/
+
+@media (max-width: 800px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+  }
+}
